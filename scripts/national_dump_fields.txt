@@ -1,0 +1,41 @@
+id          0
+title       1
+first       2
+middle
+last
+suffix
+dateadded
+deceased
+inactive
+badaddress
+address1
+address2
+city
+state
+zip
+county
+addresschanged
+home1
+home2
+work1
+work2
+cell1
+cell2
+email1
+email2
+congdist
+reglib
+solicitcodes
+solicitcodes
+solicitcodes
+employer
+occupation
+constcode
+constcode
+constcode
+standing
+category
+datejoined
+expires
+lifetime
+lastgiftdate
