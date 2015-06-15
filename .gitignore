@@ -5,6 +5,7 @@ Database/Current*
 Database/now.db
 Database/CSV/*.csv
 Database/XLS/*.xls
+Database/XLS/*.xlsx
 NationalDataDump/*
 TXT/*.txt
 XLS/*.xls
