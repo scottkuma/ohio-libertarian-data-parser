@@ -1,0 +1,13 @@
+*.pyc
+Archives/*
+Database/Libertarians-*
+Database/Current*
+Database/now.db
+Database/CSV/*.csv
+Database/XLS/*.xls
+NationalDataDump/*
+TXT/*.txt
+XLS/*.xls
+ZIP/*.zip
+*.idea/*
+*Deprecated/*
