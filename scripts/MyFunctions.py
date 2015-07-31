@@ -76,3 +76,22 @@ def copy_table(table, src, dest):
         dc.execute(ins, c)
 
     dest.commit()
+
+def get_lean(row, FIRST_PRIMARY_FIELD, LAST_PRIMARY_FIELD):
+    leaning = {}
+    for x in xrange(FIRST_PRIMARY_FIELD, LAST_PRIMARY_FIELD):
+        if row[x] not in ['', 'X']:
+            if row[x] in leaning:
+                leaning[row[x]] += 1
+            else:
+                leaning[row[x]] = 1
+    leaningParty = ""
+    maxLean = 0
+    for l, num in leaning.iteritems():
+        #print maxLean, l, num
+        if num > maxLean:
+            leaningParty = l
+            maxLean = num
+        elif num == maxLean:
+            leaningParty = ""
+    return leaningParty

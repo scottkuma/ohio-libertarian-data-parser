@@ -92,10 +92,11 @@ dbfields = [str(x[1]) for x in pragma]
 
 
 # Find some variables we'll need later
-PARTY_AFFILIATION = MyFunctions.first_startswith('PARTY_AFFILIATION',dbfields)
-LAST_PRIMARY_FIELD = MyFunctions.last_startswith('PRIMARY',dbfields)
-LAST_NAME = MyFunctions.first_startswith('LAST_NAME',dbfields)
-FIRST_NAME = MyFunctions.first_startswith('FIRST_NAME',dbfields)
+PARTY_AFFILIATION = MyFunctions.first_startswith('PARTY_AFFILIATION', dbfields)
+FIRST_PRIMARY_FIELD = MyFunctions.first_startswith('PRIMARY', dbfields)
+LAST_PRIMARY_FIELD = MyFunctions.last_startswith('PRIMARY', dbfields)
+LAST_NAME = MyFunctions.first_startswith('LAST_NAME', dbfields)
+FIRST_NAME = MyFunctions.first_startswith('FIRST_NAME', dbfields)
 ZIP = MyFunctions.first_startswith('RESIDENTIAL_ZIP', dbfields)
 fieldsInLine = len(dbfields)
 
@@ -137,8 +138,14 @@ for onefile in csvfiles:
                 # find the voter affiliation
                 voterAffiliation = row[PARTY_AFFILIATION]
                 # "None" is more descriptive than *blank*
+
                 if voterAffiliation == '':
+                    # Figure out lean for voter
+                    leaningParty = MyFunctions.get_lean(row, FIRST_PRIMARY_FIELD, LAST_PRIMARY_FIELD)
+
                     voterAffiliation = "None"
+                    if leaningParty != '':
+                        voterAffiliation += "-" + leaningParty
 
                 # record zip code
 
@@ -162,9 +169,7 @@ for onefile in csvfiles:
         # Close the county file!
         countyFile.close()
 
-        pp.pprint(zipCodes)
-
-
+        #pp.pprint(zipCodes)
 
 # pp.pprint(affiliations)
 
