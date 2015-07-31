@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
 import sqlite3
-import requests
+# import requests
 import sys
 import os
 import time
-import MyFunctions
+# import MyFunctions
 from subprocess import call
 
 # Prepare to time execution - get start time
